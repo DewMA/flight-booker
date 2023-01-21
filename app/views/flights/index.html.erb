@@ -1,0 +1,8 @@
+
+<turbo-frame id="results">
+    <ul>
+        <% @results.each do |r| %>
+            <li><%= r.from.name %> - <%= r.to.name%></li>
+        <% end %>
+    </ul>
+</turbo-frame>
