@@ -1,14 +1,13 @@
 <div class="blogs_container">
     <div class="blog">
         <turbo-frame id="form" class="form">
-            <%= form_with(model: @flight, local: true, method: :get, data: {turbo_frame: "results"}) do |f| %>
+            <%= form_with(model: @flight, local: true, method: :get, data: {turbo_frame: "results", controller: "search", action: "input->search#process" }) do |f| %>
                 <%= f.label :from %>
                 <%= f.select(:from, @airports.pluck(:name))%>
                 <%= f.label :to %>
                 <%= f.select(:to, @airports.pluck(:name))%>
                 <%= f.label :date %>
                 <%= f.select(:date, @flights.pluck(:departure_time)) %>
-                <%= f.submit "Search", class: "form-btn"%>
             <% end %>
         </turbo-frame>
     </div>

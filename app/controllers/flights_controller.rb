@@ -4,7 +4,7 @@ class FlightsController < ApplicationController
         from = Airport.find_by(name: get_params[:from])
         to = Airport.find_by(name: get_params[:to])
 
-        @results = Flight.find_by(from_id: from.id)
+        @results = Flight.where("from_id = ? or to_id = ?", from.id, to.id)
     end
 
     private
