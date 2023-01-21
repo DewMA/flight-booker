@@ -1,8 +1,10 @@
 
 <turbo-frame id="results">
-    <ul>
-        <% @results.each do |r| %>
-            <li><%= r.from.name %> - <%= r.to.name%></li>
+        <% if @results %>
+            <% @results.each do |r| %>
+                <div class="user">
+                    <%= r.from.name %> - <%= r.to.name%>
+                </div>
+            <% end %>
         <% end %>
-    </ul>
 </turbo-frame>
