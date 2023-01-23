@@ -1,0 +1,20 @@
+<turbo-frame id="blogs_container" class="blogs_container">
+
+    <div class="blog">
+        <h2>Booking ID: <%= @booking.id%> </h2>
+        <p><strong>Flight:</strong> <%= @booking.flight.from.name %> to <%= @booking.flight.to.name %><br/>
+            <strong>Departure date:</strong> <%= date_in_words(@booking.flight.departure_time )%><br/>
+            <strong>flight duration:</strong> <%= pluralize(@booking.flight.duration, "hour") %><br/>
+            <strong> <%= pluralize(@booking.passenger.size, "Passenger") %> </strong>
+            <% @booking.passenger.each do |p| %>
+                <hr>
+                    <p><strong> Passenger ID <%= p.id %> </strong></p>
+                    <p><strong>Name: </strong> <%= p.name%> <br/>
+                    <p><strong>Age: </strong> <%= p.age%> <br/>
+                </hr>
+            <% end %>
+        </p>
+
+    </div>
+
+</turbo-frame>

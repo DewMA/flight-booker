@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "bookings#index"
 
-  resources :bookings
+  resources :bookings do 
+    resources :passengers
+  end
   resources :flights
   resources :airports
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -1,4 +1,4 @@
-<div class="blogs_container">
+<turbo-frame id="blogs_container" class="blogs_container">
     <div class="blog-max">
         <turbo-frame id="form" class="form">
             <%= form_with(model: @flight, local: true, method: :get, data: {turbo_frame: "results", controller: "search", action: "input->search#process" }) do |f| %>
@@ -9,7 +9,7 @@
                 <%= f.label :passengers %>
                 <%= f.select(:passengers, (1..4).to_a) %>
                 <%= f.label :date %>
-                <%= f.select(:date, @flights.pluck(:departure_time)) %>
+                <%= f.select(:date, @dates) %>
             <% end %>
         </turbo-frame>
     </div>
@@ -17,4 +17,4 @@
         <turbo-frame id="results">
         </turbo-frame>
     </div>
-</div>
+</turbo-frame>

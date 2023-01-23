@@ -244,6 +244,11 @@ hr{
         text-align: center;
         transition: 300ms;
         
+        .error{
+            font-weight: 600;
+            color: rgb(255, 121, 121);
+        }
+
         h2{
             color: #9ecfa2;
             margin: 0;
