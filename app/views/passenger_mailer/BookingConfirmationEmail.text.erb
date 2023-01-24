@@ -1,0 +1,7 @@
+Hello
+    <% @booking.passenger.each do |p|%>
+        <%= p.name %>,
+    <% end %>
+Thanks for Booking a flight at FlightBooker.com
+-------------------------------------------------------------
+Here is your Booking ID: <%= @booking.id %> which will be use to claim your free flight ticket for $999.9

@@ -9,7 +9,7 @@ class PassengersController < ApplicationController
         @booking = Booking.find(params[:booking_id])
 
         (0..(params[:name].size - 1)).each do |i|
-            new_user = Passenger.new(:name => params[:name][i], :age => params[:age][i], :booking => @booking)
+            new_user = Passenger.new(:name => params[:name][i], :email => params[:email][i], :booking => @booking)
             if !new_user.valid?
                 flash[:new_passenger_error] = "Invalid Passengers"
                 render :new
@@ -17,6 +17,8 @@ class PassengersController < ApplicationController
             end
             new_user.save
         end
+
+        PassengerMailer.with(booking_id: @booking.id ).BookingConfirmationEmail.deliver_later
 
         redirect_to booking_path(@booking)
     end
