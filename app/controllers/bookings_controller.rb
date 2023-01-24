@@ -9,8 +9,6 @@ class BookingsController < ApplicationController
         @flights.pluck(:departure_time).each do |d|
             @dates << date_in_words(d)
         end
-        
-        puts @dates
     end
 
     def show
